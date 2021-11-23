@@ -1,12 +1,14 @@
-import React from 'react';
-import './App.css';
+import React, {Fragment} from "react";
+import Header from "./components/Header/Header";
+import "./App.css";
 
 const App = () => {
-  return (
-    <div className="App">
-      hello ts
-    </div>
-  );
-}
+    return (
+        <Fragment>
+            <Header />
+            <div className="App">hello ts</div>
+        </Fragment>
+    );
+};
 
 export default App;
