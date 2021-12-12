@@ -7,7 +7,8 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/utils": "^4.11.2",
     "@mui/icons-material": "^5.2.0",
-    "@mui/material": "^5.2.0",
+    "@mui/material": "^5.2.2",
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -51,6 +52,9 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.15"
+    "@types/styled-components": "^5.1.16"
+  },
+  "resolutions": {
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
   }
 }
