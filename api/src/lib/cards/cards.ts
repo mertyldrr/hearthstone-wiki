@@ -7,8 +7,8 @@ export const getCards = async () => {
     TableName: TABLE_NAME,
   };
   try {
-    const characters = await dynamoClient.scan(params).promise();
-    return characters;
+    const cards = await dynamoClient.scan(params).promise();
+    return cards;
   } catch (error) {
     console.log(error);
   }
@@ -22,8 +22,8 @@ export const getCardById = async (id: string) => {
     },
   };
   try {
-    const character = await dynamoClient.get(params).promise();
-    return character;
+    const card = await dynamoClient.get(params).promise();
+    return card;
   } catch (error) {
     console.log(error);
   }
