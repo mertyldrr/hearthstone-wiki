@@ -33,12 +33,12 @@ const Header = () => {
             </Typography>
             <HeaderList>
               <li>
-                <HeaderLink component={RouterLink} to="/">
+                <HeaderLink component={RouterLink} to="/cards">
                   Card Database
                 </HeaderLink>
               </li>
               <li>
-                <HeaderLink component={RouterLink} to="/">
+                <HeaderLink component={RouterLink} to="/cardbacks">
                   Cardbacks
                 </HeaderLink>
               </li>
