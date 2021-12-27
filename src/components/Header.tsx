@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link as RouterLink } from "react-router-dom";
-import { Container, HeaderList, HeaderLink } from "./styles";
+import { Container, HeaderList, HeaderLink } from "./styles/Header.styled";
 
 const Header = () => {
   return (

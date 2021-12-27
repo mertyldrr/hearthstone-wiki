@@ -1,0 +1,5 @@
+export enum cardsActionTypes {
+    REQUEST = "FETCH_CARDS_REQUEST",
+    SUCCESS = "FETCH_CARDS_SUCCESS",
+    FAILURE = "FETCH_CARDS_FAILURE"
+}
