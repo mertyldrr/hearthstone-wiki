@@ -18,15 +18,15 @@ const cardsReducer = (state = initialState, action: CardsActions) => {
       return {
         ...state,
         loading: false,
-        todos: action.payload,
+        cards: action.cards,
         error: null,
       };
     case cardsActionTypes.FAILURE:
       return {
         ...state,
         loading: false,
-        todos: [],
-        error: action.payload,
+        cards: [],
+        error: action.error,
       };
     default:
       return {
