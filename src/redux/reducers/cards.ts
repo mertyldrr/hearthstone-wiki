@@ -18,7 +18,7 @@ const cardsReducer = (state = initialState, action: CardsActions) => {
       return {
         ...state,
         loading: false,
-        cards: action.cards,
+        cards: action.payload.cards,
         error: null,
       };
     case cardsActionTypes.FAILURE:
@@ -26,7 +26,7 @@ const cardsReducer = (state = initialState, action: CardsActions) => {
         ...state,
         loading: false,
         cards: [],
-        error: action.error,
+        error: action.payload.error,
       };
     default:
       return {

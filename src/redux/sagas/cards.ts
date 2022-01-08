@@ -1,20 +1,27 @@
 import axios from 'axios';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-
 import { fetchCardsSuccess, fetchCardsFailure } from '../actions/cards';
 import { cardsActionTypes } from '../action-types/cards';
-import { ICard } from '../types/cards';
 
-const getCards = () => {
-  axios.get<ICard[]>('');
+const getCards = async () => {
+  const res = await axios.get('http://localhost:8000/cards');
+  return res.data.Items;
 };
 
 function* fetchCardsSaga(): any {
   try {
-    const response = yield call(getCards);
-    yield put(fetchCardsSuccess(response.data));
+    const data = yield call(getCards); // wait this call to finish before move on --> yield
+    yield put(
+      fetchCardsSuccess({
+        cards: data,
+      })
+    );
   } catch (error: any) {
-    yield put(fetchCardsFailure(error.message));
+    yield put(
+      fetchCardsFailure({
+        error: error.message,
+      })
+    );
   }
 }
 

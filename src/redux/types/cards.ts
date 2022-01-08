@@ -4,6 +4,7 @@ export interface ICard {
   cardId: string;
   name: string;
   img: string;
+  type: string;
 }
 
 export interface CardsState {
@@ -12,25 +13,25 @@ export interface CardsState {
   error: string | null;
 }
 
-/* export interface FetchCardsSuccessPayload {
-  cards: ICard[];
-}
-
-export interface FetchCardsFailurePayload {
-  error: string;
-} */
-
 export interface FetchCardsRequest {
   type: typeof cardsActionTypes.REQUEST;
 }
 
-export interface FetchCardsSuccess {
+export type FetchCardsSuccess = {
   type: typeof cardsActionTypes.SUCCESS;
+  payload: FetchCardsSuccessPayload;
+};
+
+export type FetchCardsFailure = {
+  type: typeof cardsActionTypes.FAILURE;
+  payload: FetchCardsFailurePayload;
+};
+
+export interface FetchCardsSuccessPayload {
   cards: ICard[];
 }
 
-export interface FetchCardsFailure {
-  type: typeof cardsActionTypes.FAILURE;
+export interface FetchCardsFailurePayload {
   error: string;
 }
 

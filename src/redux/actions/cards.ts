@@ -3,9 +3,8 @@ import {
   FetchCardsRequest,
   FetchCardsSuccess,
   FetchCardsFailure,
-  /*   FetchCardsSuccessPayload,
-  FetchCardsFailurePayload, */
-  ICard,
+  FetchCardsSuccessPayload,
+  FetchCardsFailurePayload,
 } from '../types/cards';
 
 export const fetchCardsRequest = (): FetchCardsRequest => {
@@ -14,16 +13,20 @@ export const fetchCardsRequest = (): FetchCardsRequest => {
   };
 };
 
-export const fetchCardsSuccess = (cards: ICard[]): FetchCardsSuccess => {
+export const fetchCardsSuccess = (
+  payload: FetchCardsSuccessPayload
+): FetchCardsSuccess => {
   return {
     type: cardsActionTypes.SUCCESS,
-    cards,
+    payload,
   };
 };
 
-export const fetchCardsFailure = (error: string): FetchCardsFailure => {
+export const fetchCardsFailure = (
+  payload: FetchCardsFailurePayload
+): FetchCardsFailure => {
   return {
     type: cardsActionTypes.FAILURE,
-    error,
+    payload,
   };
 };
