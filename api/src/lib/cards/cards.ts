@@ -1,6 +1,6 @@
-import { dynamoClient } from "../../config/dynamo";
+import { dynamoClient } from '../../config/dynamo';
 
-const TABLE_NAME = "HS_CARDS";
+const TABLE_NAME = 'HS_CARDS';
 
 export const getCards = async () => {
   const params = {
