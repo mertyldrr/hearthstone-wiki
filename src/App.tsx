@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import CardDatabase from './pages/CardDatabase';
 import CardbackDatabase from './pages/CardbackDatabase';
+import CardInfo from './pages/CardInfo';
 import GlobalStyle from './theme/GlobalStyle';
 import Layout from './components/Layout';
 
@@ -12,6 +13,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Layout />}></Route>
         <Route path='/cards' element={<CardDatabase />}></Route>
+        <Route path='/cards/:id' element={<CardInfo />} />
         <Route path='/cardbacks' element={<CardbackDatabase />}></Route>
       </Routes>
     </Fragment>

@@ -14,11 +14,11 @@ export const getCards = async () => {
   }
 };
 
-export const getCardById = async (id: string) => {
+export const getCardById = async (cardId: string) => {
   const params = {
     TableName: TABLE_NAME,
     Key: {
-      id,
+      cardId,
     },
   };
   try {
