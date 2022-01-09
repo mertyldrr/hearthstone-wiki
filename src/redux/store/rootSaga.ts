@@ -1,6 +1,7 @@
 import { all, fork } from 'redux-saga/effects';
 
 import cardsSaga from '../sagas/cards';
+import singleCardSaga from '../sagas/singleCard';
 
 // so code after all-effect (see comments in above code) is executed when all children sagas complete
 
@@ -9,5 +10,5 @@ There is another popular pattern when designing root saga: nesting fork effects 
 */
 
 export function* rootSaga() {
-  yield all([fork(cardsSaga)]);
+  yield all([fork(cardsSaga), fork(singleCardSaga)]);
 }
