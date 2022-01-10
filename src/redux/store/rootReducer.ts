@@ -7,6 +7,6 @@ const rootReducer = combineReducers({
   card: singleCardReducer,
 });
 
-export type AppState = ReturnType<typeof rootReducer>;
+export type GlobalState = ReturnType<typeof rootReducer>;
 
 export default rootReducer;

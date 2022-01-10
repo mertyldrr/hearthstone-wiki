@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import BelweMedium from "../assets/fonts/BelweMedium.otf";
+import { createGlobalStyle } from 'styled-components';
+import BelweMedium from '../assets/fonts/BelweMedium.otf';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
