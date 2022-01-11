@@ -6,15 +6,24 @@ import { fetchSingleCardRequest } from '../redux/actions/singleCard';
 
 const CardList = () => {
   const dispatch = useDispatch();
+
   const cards = useSelector((state: GlobalState) => state.cards.cards);
-  //console.log(cards);
-  //console.log(cards.cards.Items);
+  const searchText = useSelector(
+    (state: GlobalState) => state.cards.searchText
+  );
 
   const handleOnClick = (cardId: string) => {
     dispatch(fetchSingleCardRequest(cardId));
   };
 
-  const mapCards = cards.map(
+  const searchResultCards = cards.filter((card) => {
+    if (!searchText) {
+      return cards;
+    }
+    return card.name.toLowerCase().includes(searchText.toLowerCase());
+  });
+
+  const mapCards = searchResultCards.map(
     (card) =>
       card.img &&
       card.type !== 'Hero Power' && (

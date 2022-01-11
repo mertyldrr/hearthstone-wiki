@@ -5,7 +5,6 @@ import SearchBar from 'material-ui-search-bar';
 export const Container = styled.div``;
 
 export const SearchBarStyled = styled((props) => <SearchBar {...props} />)`
-  position: relative;
   &.MuiPaper-root {
     color: white;
     background-color: #ffffff;
@@ -13,7 +12,7 @@ export const SearchBarStyled = styled((props) => <SearchBar {...props} />)`
   &:hover {
     background-color: #d3d3d3;
   }
-  width: 100%;
+  width: 30%;
 `;
 
 export const HeaderList = styled.ul`

@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
 import { Container, HeaderList, HeaderLink } from './styles/Header.styled';
-import { SearchBarStyled } from './styles/Header.styled';
+import SearchBar from './SearchBar';
 
 const Header = () => {
   return (
@@ -47,8 +47,14 @@ const Header = () => {
             <Button color='inherit'>Login</Button>
           </Toolbar>
           <Toolbar sx={{ backgroundColor: '#009AE4' }}>
-            <Container>
-              <SearchBarStyled value={''} />
+            <Container
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <SearchBar />
             </Container>
           </Toolbar>
         </AppBar>
