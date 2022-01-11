@@ -5,6 +5,7 @@ const initialState: CardsState = {
   loading: false,
   cards: [],
   error: null,
+  searchText: null,
 };
 
 const cardsReducer = (state = initialState, action: CardsActions) => {
@@ -27,6 +28,11 @@ const cardsReducer = (state = initialState, action: CardsActions) => {
         loading: false,
         cards: [],
         error: action.payload.error,
+      };
+    case cardsActionTypes.SEARCH:
+      return {
+        ...state,
+        searchText: action.payload.searchText,
       };
     default:
       return {

@@ -11,6 +11,7 @@ export interface CardsState {
   loading: boolean;
   cards: ICard[];
   error: string | null;
+  searchText: string | null;
 }
 
 export interface FetchCardsRequest {
@@ -22,20 +23,30 @@ export type FetchCardsSuccess = {
   payload: FetchCardsSuccessPayload;
 };
 
+export interface FetchCardsSuccessPayload {
+  cards: ICard[];
+}
+
 export type FetchCardsFailure = {
   type: typeof cardsActionTypes.FAILURE;
   payload: FetchCardsFailurePayload;
 };
 
-export interface FetchCardsSuccessPayload {
-  cards: ICard[];
-}
-
 export interface FetchCardsFailurePayload {
   error: string;
+}
+
+export type SearchCardsByName = {
+  type: typeof cardsActionTypes.SEARCH;
+  payload: SearchCardsByNamePayload;
+};
+
+export interface SearchCardsByNamePayload {
+  searchText: string;
 }
 
 export type CardsActions =
   | FetchCardsRequest
   | FetchCardsSuccess
-  | FetchCardsFailure;
+  | FetchCardsFailure
+  | SearchCardsByName;

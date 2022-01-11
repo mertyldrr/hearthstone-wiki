@@ -5,6 +5,8 @@ import {
   FetchCardsFailure,
   FetchCardsSuccessPayload,
   FetchCardsFailurePayload,
+  SearchCardsByName,
+  SearchCardsByNamePayload,
 } from '../types/cards';
 
 export const fetchCardsRequest = (): FetchCardsRequest => {
@@ -27,6 +29,15 @@ export const fetchCardsFailure = (
 ): FetchCardsFailure => {
   return {
     type: cardsActionTypes.FAILURE,
+    payload,
+  };
+};
+
+export const searchCardsByName = (
+  payload: SearchCardsByNamePayload
+): SearchCardsByName => {
+  return {
+    type: cardsActionTypes.SEARCH,
     payload,
   };
 };
