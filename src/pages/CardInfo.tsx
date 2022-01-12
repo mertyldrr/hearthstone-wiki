@@ -21,7 +21,7 @@ const CardInfo = () => {
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
       >
-        <CardDetail />
+        <CardDetail handleCloseModal={handleCloseModal} />
       </Modal>
     </div>
   );
