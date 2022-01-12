@@ -4,6 +4,7 @@ export interface ICard {
   cardId: string;
   name: string;
   img: string;
+  imgGold: string;
   type: string;
 }
 

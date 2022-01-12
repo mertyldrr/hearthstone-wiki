@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
+import { Box, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { GlobalState } from '../redux/store/rootReducer';
 import { SingleCardContainer } from './styles/CardDetail.styled';
@@ -24,11 +24,20 @@ const CardDetail = () => {
       <Typography style={{ fontFamily: 'BelweBoldBT' }}>
         {card.cardId}
       </Typography>
-      <img
-        src={`${card.img}?w=348&h=500&fit=crop&auto=format`}
-        srcSet={`${card.img}?w=348&h=500&fit=crop&auto=format&dpr=2 1.5x`}
-        alt={card.name}
-      />
+      <Box style={{ display: 'flex', justifyContent: 'center' }}>
+        <img
+          src={`${card.img}?w=348&h=500&fit=crop&auto=format`}
+          srcSet={`${card.img}?w=348&h=500&fit=crop&auto=format&dpr=2 1.5x`}
+          alt={card.name}
+        />
+        {card.imgGold && (
+          <img
+            src={`${card.imgGold}?w=348&h=500&fit=crop&auto=format`}
+            srcSet={`${card.imgGold}?w=348&h=500&fit=crop&auto=format&dpr=2 1.5x`}
+            alt={card.name}
+          />
+        )}
+      </Box>
     </SingleCardContainer>
   );
 };
