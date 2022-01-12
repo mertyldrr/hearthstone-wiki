@@ -27,5 +27,6 @@ export const HeaderList = styled.ul`
 
 export const HeaderLink = styled((props) => <Link {...props} />)`
   color: #ffea3e;
+  font-size: 18px;
   text-decoration: none;
 `;
