@@ -13,7 +13,10 @@ const SearchBar = (props: any) => {
     );
   };
   return (
-    <SearchBarStyled value={props.searchText} onChange={onChangeHandler} />
+    <SearchBarStyled
+      value={props.searchText ? props.searchText : ''}
+      onChange={onChangeHandler}
+    />
   );
 };
 

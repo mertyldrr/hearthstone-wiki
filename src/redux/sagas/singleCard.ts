@@ -15,7 +15,6 @@ function* fetchCardByIdSaga(action: any): any {
   const id = action.id;
   try {
     const data = yield call(getCard, id);
-    console.log('amina koyim');
     yield put(
       fetchSingleCardSuccess({
         card: data,
