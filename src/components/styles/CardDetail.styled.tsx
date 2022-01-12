@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Cross } from '@styled-icons/icomoon/Cross';
 import { Box } from '@material-ui/core';
 
 export const SingleCardContainer = styled((props) => <Box {...props} />)`
@@ -6,17 +7,15 @@ export const SingleCardContainer = styled((props) => <Box {...props} />)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400;
+  width: 70%;
   box-shadow: 24;
 `;
 
-export const Backdrop = styled('div')`
-  z-index: -1;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-tap-highlight-color: transparent;
+export const StyledCross = styled(Cross)`
+  color: gainsboro;
+  float: right;
+  padding: 40px 60px;
+  :hover {
+    cursor: pointer;
+  }
 `;
