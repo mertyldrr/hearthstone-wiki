@@ -1,10 +1,24 @@
 import { createGlobalStyle } from 'styled-components';
-import BelweMedium from '../assets/fonts/BelweMedium.otf';
+import Fonts from '../ui/Fonts';
+
+const { BelweMedium, BelweBoldBT, BelweCondensedBT, BelweLightBT } = Fonts;
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: BelweMedium;
     src: url(${BelweMedium}) format("opentype");
+  }
+  @font-face {
+    font-family: BelweBoldBT;
+    src: url(${BelweBoldBT}) format("truetype");
+  }
+  @font-face {
+    font-family: BelweCondensedBT;
+    src: url(${BelweCondensedBT}) format("truetype");
+  }
+  @font-face {
+    font-family: BelweLightBT;
+    src: url(${BelweLightBT}) format("truetype");
   }
   * {
     margin: 0;
