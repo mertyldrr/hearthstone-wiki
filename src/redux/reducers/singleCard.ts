@@ -3,7 +3,7 @@ import { SingleCardActions, SingleCardState } from '../types/singleCard';
 
 const initialState: SingleCardState = {
   loading: false,
-  card: { cardId: '', name: '', img: '', imgGold: '', type: '' },
+  card: {},
   error: null,
 };
 
@@ -25,7 +25,7 @@ const singleCardReducer = (state = initialState, action: SingleCardActions) => {
       return {
         ...state,
         loading: false,
-        card: { cardId: '', name: '', img: '', imgGold: '', type: '' },
+        card: { cardId: '', name: '', img: '', imgGold: '', type: '', flavor: '' },
         error: action.payload.error,
       };
     default:

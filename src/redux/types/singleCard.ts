@@ -1,11 +1,7 @@
 import { singleCardActionTypes } from '../action-types/cards';
 
 export interface ICard {
-  cardId: string;
-  name: string;
-  img: string;
-  imgGold: string;
-  type: string;
+  [key: string]: string;
 }
 
 export interface SingleCardState {

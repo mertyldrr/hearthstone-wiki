@@ -1,10 +1,7 @@
 import { cardsActionTypes } from '../action-types/cards';
 
 export interface ICard {
-  cardId: string;
-  name: string;
-  img: string;
-  type: string;
+  [key: string]: string;
 }
 
 export interface CardsState {
