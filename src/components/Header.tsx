@@ -28,7 +28,7 @@ const Header = () => {
             <Typography
               variant='h6'
               component='div'
-              sx={{ flexGrow: 0.3, fontSize: 28, fontFamily: 'BelweMedium' }}
+              style={{ flexGrow: 0.3, fontSize: 28, fontFamily: 'BelweMedium' }}
             >
               Hearthstone Wiki
             </Typography>

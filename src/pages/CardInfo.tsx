@@ -16,7 +16,7 @@ const CardInfo = () => {
     <div>
       <Modal
         open={open}
-        onClose={handleCloseModal}
+        onClose={() => handleCloseModal()}
         BackdropComponent={Backdrop}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'

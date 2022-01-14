@@ -19,3 +19,17 @@ export const StyledCross = styled(Cross)`
     cursor: pointer;
   }
 `;
+
+export const AttributeText = styled.p`
+  font-size: 18px;
+  color: black;
+  display: inline;
+  font-family: 'BelweMedium';
+`;
+
+export const LabelText = styled.p`
+  font-size: 18px;
+  color: white;
+  display: inline;
+  font-family: 'BelweMedium';
+`;
