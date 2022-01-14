@@ -5,19 +5,19 @@ const { BelweMedium, BelweBoldBT, BelweCondensedBT, BelweLightBT } = Fonts;
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: BelweMedium;
-    src: url(${BelweMedium}) format("opentype");
+    font-family: 'BelweMedium';
+    src: url(${BelweMedium}) format("truetype");
   }
   @font-face {
-    font-family: BelweBoldBT;
+    font-family: 'BelweBoldBT';
     src: url(${BelweBoldBT}) format("truetype");
   }
   @font-face {
-    font-family: BelweCondensedBT;
+    font-family: 'BelweCondensedBT';
     src: url(${BelweCondensedBT}) format("truetype");
   }
   @font-face {
-    font-family: BelweLightBT;
+    font-family: 'BelweLightBT';
     src: url(${BelweLightBT}) format("truetype");
   }
   * {
