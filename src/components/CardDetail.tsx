@@ -2,7 +2,12 @@ import React, { Fragment } from 'react';
 import { Box, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { GlobalState } from '../redux/store/rootReducer';
-import { SingleCardContainer, StyledCross, LabelText, AttributeText } from './styles/CardDetail.styled';
+import {
+  SingleCardContainer,
+  StyledCross,
+  LabelText,
+  AttributeText,
+} from './styles/CardDetail.styled';
 
 interface PropTypes {
   handleCloseModal: () => void;
@@ -15,14 +20,20 @@ const CardDetail = ({ handleCloseModal }: PropTypes) => {
     <Fragment>
       <StyledCross size={70} onClick={handleCloseModal} />
       <SingleCardContainer>
-        <Box style={{ display: 'flex', justifyContent: 'center', textAlign: 'center' }}>
-          <Box style={{ border: '1px solid', flex: 1}}>
+        <Box
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Box style={{ flex: 1, textAlign: 'center' }}>
             <Typography
               style={{
                 textAlign: 'center',
                 fontFamily: 'BelweBoldBT',
                 color: 'white',
-                fontSize: 28
+                fontSize: 48,
+                textShadow: 'black 4px 4px 15px',
               }}
               id='modal-modal-title'
               variant='h6'
@@ -36,7 +47,15 @@ const CardDetail = ({ handleCloseModal }: PropTypes) => {
               alt={card.name}
             />
           </Box>
-          <Box style={{ padding: 10,border: '1px solid', flex: 1, display: 'flex', flexDirection: 'column'}}>
+          <Box
+            style={{
+              padding: 10,
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
             <AttributeText>
               <LabelText>Flavor Text: </LabelText> {card.flavor}
             </AttributeText>
@@ -44,13 +63,13 @@ const CardDetail = ({ handleCloseModal }: PropTypes) => {
               <LabelText>Class: </LabelText> {card.playerClass}
             </AttributeText>
             <AttributeText>
-            <LabelText>Set: </LabelText> {card.cardSet}
+              <LabelText>Set: </LabelText> {card.cardSet}
             </AttributeText>
             <AttributeText>
-            <LabelText>Faction: </LabelText> {card.faction}
+              <LabelText>Faction: </LabelText> {card.faction}
             </AttributeText>
             <AttributeText>
-            <LabelText>Rarity: </LabelText> {card.rarity}
+              <LabelText>Rarity: </LabelText> {card.rarity}
             </AttributeText>
           </Box>
         </Box>
