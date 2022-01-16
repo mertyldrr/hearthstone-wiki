@@ -21,6 +21,10 @@ const cardsReducer = (state = initialState, action: CardsActions) => {
         loading: false,
         cards: action.payload.cards,
         error: null,
+        next: action.payload.next,
+        previous: action.payload.previous,
+        lastKey: action.payload.lastKey,
+        itemCount: action.payload.itemCount,
       };
     case cardsActionTypes.FAILURE:
       return {

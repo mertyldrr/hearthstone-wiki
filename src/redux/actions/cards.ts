@@ -9,9 +9,10 @@ import {
   SearchCardsByNamePayload,
 } from '../types/cards';
 
-export const fetchCardsRequest = (): FetchCardsRequest => {
+export const fetchCardsRequest = (lastKey?: object): FetchCardsRequest => {
   return {
     type: cardsActionTypes.REQUEST,
+    lastKey,
   };
 };
 

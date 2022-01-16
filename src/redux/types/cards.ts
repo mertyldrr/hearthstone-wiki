@@ -9,10 +9,12 @@ export interface CardsState {
   cards: ICard[];
   error: string | null;
   searchText: string | null;
+  lastKey?: object;
 }
 
 export interface FetchCardsRequest {
   type: typeof cardsActionTypes.REQUEST;
+  lastKey?: object;
 }
 
 export type FetchCardsSuccess = {
@@ -22,6 +24,10 @@ export type FetchCardsSuccess = {
 
 export interface FetchCardsSuccessPayload {
   cards: ICard[];
+  next?: object;
+  previous?: object;
+  lastKey?: object;
+  itemCount: number;
 }
 
 export type FetchCardsFailure = {
