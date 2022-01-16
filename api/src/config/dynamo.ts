@@ -5,3 +5,4 @@ AWS.config.credentials = credentials;
 AWS.config.update({ region: 'eu-central-1' });
 
 export const dynamoClient = new AWS.DynamoDB.DocumentClient();
+export const dynamoDB = new AWS.DynamoDB();
