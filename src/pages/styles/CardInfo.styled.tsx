@@ -10,4 +10,5 @@ export const Backdrop = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   background: url('https://images4.alphacoders.com/607/607398.jpg') no-repeat
     center center fixed;
+  filter: brightness(20%);
 `;
