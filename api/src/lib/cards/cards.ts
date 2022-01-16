@@ -1,11 +1,33 @@
-import { dynamoClient } from '../../config/dynamo';
+import { dynamoClient, dynamoDB } from '../../config/dynamo';
 
 const TABLE_NAME = 'HS_CARDS';
 
-export const getCards = async () => {
+export const getTableLength = async () => {
   const params = {
     TableName: TABLE_NAME,
   };
+  try {
+    const description = await dynamoDB.describeTable(params).promise();
+    return description.Table.ItemCount;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getCards = async (
+  page: number,
+  pageSize: number,
+  lastEvaluatedKey?: object
+) => {
+  const params = {
+    TableName: TABLE_NAME,
+    Limit: pageSize,
+  };
+  if (lastEvaluatedKey) {
+    // @ts-ignore
+    params.ExclusiveStartKey = { cardId: lastEvaluatedKey };
+  }
+
   try {
     const cards = await dynamoClient.scan(params).promise();
     return cards;
