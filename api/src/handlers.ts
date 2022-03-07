@@ -21,7 +21,8 @@ export const cardsHandler = async (req: Request, res: Response) => {
     const itemCount = await getTableLength();
     const cards = await getCards(pageSize, lastKey);
     const results: Results = {
-      cards: cards,
+      cards: cards.Items,
+      lastItem: cards.LastEvaluatedKey,
       itemCount: itemCount,
     };
     results.next = {
@@ -32,8 +33,6 @@ export const cardsHandler = async (req: Request, res: Response) => {
       page: page - 1,
       pageSize: pageSize,
     };
-    results.lastItem = cards.LastEvaluatedKey;
-    results.cards = cards.Items;
     res.json(results);
   } catch (error) {
     console.log(error);
