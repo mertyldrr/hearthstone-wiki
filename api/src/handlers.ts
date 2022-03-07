@@ -19,7 +19,7 @@ export const cardsHandler = async (req: Request, res: Response) => {
     const pageSize = +req.query.limit;
     const lastKey = req.query.lastKey as object;
     const itemCount = await getTableLength();
-    const cards = await getCards(page, pageSize, lastKey);
+    const cards = await getCards(pageSize, lastKey);
     const results: Results = {
       cards: cards,
       itemCount: itemCount,
