@@ -6,6 +6,7 @@ import { fetchMoreCardsRequest } from '../redux/actions/cards';
 import { fetchSingleCardRequest } from '../redux/actions/singleCard';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { ICard } from '../redux/types/cards';
+import { Oval } from 'react-loader-spinner';
 
 const CardList = () => {
   const dispatch = useDispatch();
@@ -56,9 +57,21 @@ const CardList = () => {
   return (
     <InfiniteScroll
       dataLength={mapCards.length} //This is important field to render the next data
-      next={() => handleFetch(12, lastKey)}
+      next={() => handleFetch(36, lastKey)}
       hasMore={cards.length < totalCards}
-      loader={<h4>Loading...</h4>}
+      loader={
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Oval
+            ariaLabel='loading-indicator'
+            height={100}
+            width={100}
+            strokeWidth={5}
+            strokeWidthSecondary={1}
+            color='#73471C'
+            secondaryColor='white'
+          />
+        </div>
+      }
       endMessage={
         <p style={{ textAlign: 'center' }}>
           <b>Yay! You have seen it all</b>

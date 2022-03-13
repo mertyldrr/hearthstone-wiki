@@ -8,7 +8,7 @@ const CardDatabase = (): JSX.Element => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCardsRequest(12));
+    dispatch(fetchCardsRequest(36));
   }, [dispatch]);
 
   return (
