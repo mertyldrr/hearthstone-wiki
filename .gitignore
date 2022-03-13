@@ -24,3 +24,4 @@ yarn-error.log*
 .vscode/settings.json
 src/fonts.d.ts
 src/react-app-env.d.ts
+api/requests.rest
