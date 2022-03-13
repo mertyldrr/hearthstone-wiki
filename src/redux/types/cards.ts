@@ -4,52 +4,80 @@ export interface ICard {
   [key: string]: string;
 }
 
-export interface CardsState {
+export type CardsState = {
   loading: boolean;
   cards: ICard[];
   error: string | null;
   searchText: string | null;
-  lastKey?: object;
-}
+  lastKey?: string;
+  itemCount: number | null;
+};
 
-export interface FetchCardsRequest {
+export type FetchCardsRequest = {
   type: typeof cardsActionTypes.REQUEST;
-  lastKey?: object;
-}
+  limit: number;
+  lastKey?: string;
+};
 
 export type FetchCardsSuccess = {
   type: typeof cardsActionTypes.SUCCESS;
   payload: FetchCardsSuccessPayload;
 };
 
-export interface FetchCardsSuccessPayload {
+export type FetchCardsSuccessPayload = {
   cards: ICard[];
-  next?: object;
-  previous?: object;
-  lastKey?: object;
+  lastKey?: string;
   itemCount: number;
-}
+};
 
 export type FetchCardsFailure = {
   type: typeof cardsActionTypes.FAILURE;
   payload: FetchCardsFailurePayload;
 };
 
-export interface FetchCardsFailurePayload {
+export type FetchCardsFailurePayload = {
   error: string;
-}
+};
+
+export type FetchMoreCardsRequest = {
+  type: typeof cardsActionTypes.LOAD_MORE_REQUEST;
+  limit: number;
+  lastKey?: string;
+};
+
+export type FetchMoreCardsSuccess = {
+  type: typeof cardsActionTypes.LOAD_MORE_SUCCESS;
+  payload: FetchMoreCardsSuccessPayload;
+};
+
+export type FetchMoreCardsSuccessPayload = {
+  cards: ICard[];
+  lastKey?: string;
+};
+
+export type FetchMoreCardsFailure = {
+  type: typeof cardsActionTypes.LOAD_MORE_FAILURE;
+  payload: FetchMoreCardsFailurePayload;
+};
+
+export type FetchMoreCardsFailurePayload = {
+  error: string;
+};
 
 export type SearchCardsByName = {
   type: typeof cardsActionTypes.SEARCH;
   payload: SearchCardsByNamePayload;
 };
 
-export interface SearchCardsByNamePayload {
+export type SearchCardsByNamePayload = {
   searchText: string;
-}
+};
 
 export type CardsActions =
   | FetchCardsRequest
   | FetchCardsSuccess
   | FetchCardsFailure
+  | FetchMoreCardsRequest
+  | FetchMoreCardsSuccess
+  | FetchMoreCardsFailure
   | SearchCardsByName;

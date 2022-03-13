@@ -1,14 +1,18 @@
 import { cardsActionTypes } from '../action-types/cards';
-import { CardsActions, CardsState } from '../types/cards';
+import { CardsActions, CardsState, ICard } from '../types/cards';
 
 const initialState: CardsState = {
   loading: false,
-  cards: [],
+  cards: [] as ICard[],
   error: null,
   searchText: null,
+  itemCount: null,
 };
 
-const cardsReducer = (state = initialState, action: CardsActions) => {
+const cardsReducer = (
+  state = initialState,
+  action: CardsActions
+): CardsState => {
   switch (action.type) {
     case cardsActionTypes.REQUEST:
       return {
@@ -21,8 +25,6 @@ const cardsReducer = (state = initialState, action: CardsActions) => {
         loading: false,
         cards: action.payload.cards,
         error: null,
-        next: action.payload.next,
-        previous: action.payload.previous,
         lastKey: action.payload.lastKey,
         itemCount: action.payload.itemCount,
       };
@@ -30,7 +32,27 @@ const cardsReducer = (state = initialState, action: CardsActions) => {
       return {
         ...state,
         loading: false,
-        cards: [],
+        error: action.payload.error,
+      };
+    case cardsActionTypes.LOAD_MORE_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case cardsActionTypes.LOAD_MORE_SUCCESS:
+      const newCards: ICard[] = action.payload.cards;
+      const { cards } = state;
+      return {
+        ...state,
+        loading: false,
+        cards: [...cards, ...newCards],
+        error: null,
+        lastKey: action.payload.lastKey,
+      };
+    case cardsActionTypes.LOAD_MORE_FAILURE:
+      return {
+        ...state,
+        loading: false,
         error: action.payload.error,
       };
     case cardsActionTypes.SEARCH:
