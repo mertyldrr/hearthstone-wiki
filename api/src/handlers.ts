@@ -7,31 +7,20 @@ export const rootHandler = (req: Request, res: Response) => {
 
 interface Results {
   cards: object;
-  next?: object;
-  previous?: object;
   lastItem?: object;
   itemCount: number;
 }
 
 export const cardsHandler = async (req: Request, res: Response) => {
   try {
-    const page = +req.query.page;
-    const pageSize = +req.query.limit;
-    const lastKey = req.query.lastKey as object;
+    const limit = +req.query.limit;
+    const lastKey = req.query.lastKey;
     const itemCount = await getTableLength();
-    const cards = await getCards(pageSize, lastKey);
+    const cards = await getCards(limit, lastKey as string);
     const results: Results = {
       cards: cards.Items,
       lastItem: cards.LastEvaluatedKey,
       itemCount: itemCount,
-    };
-    results.next = {
-      page: page + 1,
-      pageSize: pageSize,
-    };
-    results.previous = {
-      page: page - 1,
-      pageSize: pageSize,
     };
     res.json(results);
   } catch (error) {
