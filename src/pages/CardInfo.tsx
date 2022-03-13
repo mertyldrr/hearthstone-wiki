@@ -6,10 +6,10 @@ import { Backdrop } from './styles/CardInfo.styled';
 
 const CardInfo = () => {
   const [open, setOpen] = useState(true);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const handleCloseModal = () => {
     setOpen(false);
-    navigate('/cards');
+    navigate({ pathname: '/cards' });
   };
 
   return (
