@@ -26,10 +26,10 @@ export const getTableLength = async () => {
 /*
  * Fetch all cards, limited with page size.
  */
-export const getCards = async (pageSize: number, lastEvaluatedKey?: object) => {
+export const getCards = async (limit: number, lastEvaluatedKey?: string) => {
   const params: getCardsParamsObject = {
     TableName: TABLE_NAME,
-    Limit: pageSize,
+    Limit: limit,
   };
   if (lastEvaluatedKey) {
     params.ExclusiveStartKey = { cardId: lastEvaluatedKey };
@@ -63,7 +63,7 @@ export const getCardById = async (cardId: string) => {
 
 /* 
   * Update a card, if not exists create new card.
-  TODO: implement a use case to test function.
+  TODO: implement a use case to test this function.
 */
 export const addorUpdateCard = async (card: object) => {
   try {
