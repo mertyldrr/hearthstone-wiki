@@ -12,10 +12,18 @@ const SearchBar = (props: any) => {
       })
     );
   };
+  const onCancelHandler = () => {
+    dispatch(
+      searchCardsByName({
+        searchText: '',
+      })
+    );
+  };
   return (
     <SearchBarStyled
       value={props.searchText ? props.searchText : ''}
       onChange={onChangeHandler}
+      onCancelSearch={onCancelHandler}
     />
   );
 };
