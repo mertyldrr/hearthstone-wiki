@@ -1,9 +1,5 @@
 import { Request, Response } from 'express';
-import { getCards, getCardById, getTableLength } from './lib/cards/cards';
-
-export const rootHandler = (req: Request, res: Response) => {
-  return res.send('API is working 🤓');
-};
+import { getCards, getCardById, getTableLength } from '../lib/cards';
 
 interface Results {
   cards: object;
@@ -30,9 +26,9 @@ export const cardsHandler = async (req: Request, res: Response) => {
 };
 
 export const singleCardByIdHandler = async (req: Request, res: Response) => {
-  const id = req.params.id;
+  const cardId = req.params.id;
   try {
-    const card = await getCardById(id);
+    const card = await getCardById(cardId);
     res.json(card);
   } catch (error) {
     console.log(error);

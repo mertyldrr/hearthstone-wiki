@@ -1,4 +1,4 @@
-import { dynamoClient, dynamoDB } from '../../config/dynamo';
+import { dynamoClient, dynamoDB } from '../config/dynamo';
 
 const TABLE_NAME = 'HS_CARDS';
 
@@ -8,8 +8,8 @@ interface getCardsParamsObject {
   ExclusiveStartKey?: object;
 }
 
-/*
- * Fetch table size(item count).
+/**
+ * * Fetch table size(item count).
  */
 export const getTableLength = async () => {
   const params = {
@@ -22,9 +22,8 @@ export const getTableLength = async () => {
     console.log(error);
   }
 };
-
-/*
- * Fetch all cards, limited with page size.
+/**
+ * * Fetch all cards, limited with page size.
  */
 export const getCards = async (limit: number, lastEvaluatedKey?: string) => {
   const params: getCardsParamsObject = {
@@ -43,8 +42,8 @@ export const getCards = async (limit: number, lastEvaluatedKey?: string) => {
   }
 };
 
-/*
- * Fetch single card by id.
+/**
+ * * Fetch single card by id.
  */
 export const getCardById = async (cardId: string) => {
   const params = {
@@ -61,10 +60,10 @@ export const getCardById = async (cardId: string) => {
   }
 };
 
-/* 
-  * Update a card, if not exists create new card.
-  TODO: implement a use case to test this function.
-*/
+/**
+ * * Update a card, if not exists create new card.
+ * TODO: implement a use case to test this function.
+ */
 export const addorUpdateCard = async (card: object) => {
   try {
     const params = {
