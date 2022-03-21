@@ -33,7 +33,7 @@ export interface FetchSingleCardFailurePayload {
   error: string;
 }
 
-export type SingleCardActions =
+export type SingleCardTypes =
   | FetchSingleCardRequest
   | FetchSingleCardSuccess
   | FetchSingleCardFailure;

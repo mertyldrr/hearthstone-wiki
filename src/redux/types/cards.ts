@@ -73,7 +73,7 @@ export type SearchCardsByNamePayload = {
   searchText: string;
 };
 
-export type CardsActions =
+export type CardsTypes =
   | FetchCardsRequest
   | FetchCardsSuccess
   | FetchCardsFailure
