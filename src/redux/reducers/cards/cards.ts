@@ -1,5 +1,5 @@
-import { cardsActionTypes } from '../action-types/cards';
-import { CardsActions, CardsState, ICard } from '../types/cards';
+import { cardsActionTypes } from '../../action-types/cards';
+import { CardsTypes, CardsState, ICard } from '../../types/cards';
 
 const initialState: CardsState = {
   loading: false,
@@ -9,10 +9,7 @@ const initialState: CardsState = {
   itemCount: null,
 };
 
-const cardsReducer = (
-  state = initialState,
-  action: CardsActions
-): CardsState => {
+const cardsReducer = (state = initialState, action: CardsTypes): CardsState => {
   switch (action.type) {
     case cardsActionTypes.REQUEST:
       return {

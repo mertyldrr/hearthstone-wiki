@@ -1,5 +1,5 @@
-import { singleCardActionTypes } from '../action-types/cards';
-import { SingleCardActions, SingleCardState } from '../types/singleCard';
+import { singleCardActionTypes } from '../../action-types/cards';
+import { SingleCardTypes, SingleCardState } from '../../types/singleCard';
 
 const initialState: SingleCardState = {
   loading: false,
@@ -7,7 +7,7 @@ const initialState: SingleCardState = {
   error: null,
 };
 
-const singleCardReducer = (state = initialState, action: SingleCardActions) => {
+const singleCardReducer = (state = initialState, action: SingleCardTypes) => {
   switch (action.type) {
     case singleCardActionTypes.REQUEST:
       return {
@@ -25,7 +25,14 @@ const singleCardReducer = (state = initialState, action: SingleCardActions) => {
       return {
         ...state,
         loading: false,
-        card: { cardId: '', name: '', img: '', imgGold: '', type: '', flavor: '' },
+        card: {
+          cardId: '',
+          name: '',
+          img: '',
+          imgGold: '',
+          type: '',
+          flavor: '',
+        },
         error: action.payload.error,
       };
     default:

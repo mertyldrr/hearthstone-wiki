@@ -5,8 +5,8 @@ import {
   fetchCardsFailure,
   fetchMoreCardsSuccess,
   fetchMoreCardsFailure,
-} from '../actions/cards';
-import { cardsActionTypes } from '../action-types/cards';
+} from '../../actions/cards/cards';
+import { cardsActionTypes } from '../../action-types/cards';
 
 const getCards = async (limit: number, lastKeyId?: any) => {
   let res;

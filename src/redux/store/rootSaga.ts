@@ -1,7 +1,7 @@
 import { all, fork } from 'redux-saga/effects';
 
-import cardsSaga from '../sagas/cards';
-import singleCardSaga from '../sagas/singleCard';
+import cardsSaga from '../sagas/cards/cards';
+import singleCardSaga from '../sagas/cards/singleCard';
 
 // so code after all-effect (see comments in above code) is executed when all children sagas complete
 

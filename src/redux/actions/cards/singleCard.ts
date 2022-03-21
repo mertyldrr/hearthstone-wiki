@@ -1,11 +1,11 @@
-import { singleCardActionTypes } from '../action-types/cards';
+import { singleCardActionTypes } from '../../action-types/cards';
 import {
   FetchSingleCardRequest,
   FetchSingleCardSuccess,
   FetchSingleCardFailure,
   FetchSingleCardSuccessPayload,
   FetchSingleCardFailurePayload,
-} from '../types/singleCard';
+} from '../../types/singleCard';
 
 export const fetchSingleCardRequest = (id: string): FetchSingleCardRequest => {
   return {

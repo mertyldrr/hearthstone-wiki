@@ -3,8 +3,8 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import {
   fetchSingleCardSuccess,
   fetchSingleCardFailure,
-} from '../actions/singleCard';
-import { singleCardActionTypes } from '../action-types/cards';
+} from '../../actions/cards/singleCard';
+import { singleCardActionTypes } from '../../action-types/cards';
 
 const getCard = async (cardId: string) => {
   const res = await axios.get(`http://localhost:8000/cards/${cardId}`);

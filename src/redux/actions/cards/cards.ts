@@ -1,4 +1,4 @@
-import { cardsActionTypes } from '../action-types/cards';
+import { cardsActionTypes } from '../../action-types/cards';
 import {
   FetchCardsRequest,
   FetchCardsSuccess,
@@ -12,7 +12,7 @@ import {
   FetchMoreCardsFailurePayload,
   SearchCardsByName,
   SearchCardsByNamePayload,
-} from '../types/cards';
+} from '../../types/cards';
 
 export const fetchCardsRequest = (
   limit: number,
