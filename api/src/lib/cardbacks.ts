@@ -15,15 +15,16 @@ export const getCardbacks = async (
   limit: number,
   lastEvaluatedKey?: string
 ) => {
+  const params: getCardbacksParamsObject = {
+    TableName: TABLE_NAME,
+    Limit: limit,
+  };
+  if (lastEvaluatedKey) {
+    params.ExclusiveStartKey = { cardbackId: lastEvaluatedKey };
+  }
   try {
-    const params: getCardbacksParamsObject = {
-      TableName: TABLE_NAME,
-      Limit: limit,
-    };
-    if (lastEvaluatedKey) {
-      params.ExclusiveStartKey = { cardBackId: lastEvaluatedKey };
-    }
-    return await dynamoClient.get(params).promise();
+    const cardbacks = await dynamoClient.scan(params).promise();
+    return cardbacks;
   } catch (error) {
     console.log(error);
   }
@@ -32,11 +33,11 @@ export const getCardbacks = async (
 /**
  * * Fetch single cardback by id.
  */
-export const getCardbackById = async (cardbackId: string) => {
+export const getCardbackById = async (cardBackId: string) => {
   const params = {
     TableName: TABLE_NAME,
     Key: {
-      cardbackId,
+      cardBackId,
     },
   };
   try {

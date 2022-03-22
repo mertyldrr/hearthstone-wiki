@@ -13,7 +13,7 @@ export const cardbacksHandler = async (req: Request, res: Response) => {
     const cardbacks = await getCardbacks(limit, lastKey as string);
     const results: Results = {
       cardbacks: cardbacks.Items,
-      lastItem: cardbacks.lastEvaluatedKey,
+      lastItem: cardbacks.LastEvaluatedKey,
     };
     res.json(results);
   } catch (error) {

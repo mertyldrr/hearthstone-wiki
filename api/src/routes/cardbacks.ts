@@ -1,6 +1,7 @@
 import express from 'express';
+import { cardbacksHandler, singleCardbackHandler } from '../handlers/cardbacks';
 
 export const cardbacksRouter = express.Router();
 
-cardbacksRouter.get('/');
-cardbacksRouter.get('/:id');
+cardbacksRouter.get('/', cardbacksHandler);
+cardbacksRouter.get('/:id', singleCardbackHandler);
