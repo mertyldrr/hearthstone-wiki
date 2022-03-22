@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { fetchMoreCardsRequest } from '../redux/actions/cards/cards';
 import { fetchSingleCardRequest } from '../redux/actions/cards/singleCard';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { ICard } from '../redux/types/cards';
+import { ICard } from '../redux/types/common';
 import { Oval } from 'react-loader-spinner';
 
 const CardList = () => {
@@ -73,7 +73,7 @@ const CardList = () => {
         </div>
       }
     >
-      <ImageList cols={6} rowHeight={360}>
+      <ImageList style={{ padding: '0px 10px' }} cols={6} rowHeight={360}>
         {mapCards}
       </ImageList>
     </InfiniteScroll>
