@@ -1,5 +1,6 @@
 import { cardsActionTypes } from '../../action-types/cards';
-import { CardsTypes, CardsState, ICard } from '../../types/cards';
+import { CardsTypes, CardsState } from '../../types/cards';
+import { ICard } from '../../types/common';
 
 const initialState: CardsState = {
   loading: false,

@@ -4,16 +4,16 @@ export interface ICard {
   [key: string]: string;
 }
 
-export interface SingleCardState {
+export type SingleCardState = {
   loading: boolean;
   card: ICard;
   error: string | null;
-}
+};
 
-export interface FetchSingleCardRequest {
+export type FetchSingleCardRequest = {
   type: typeof singleCardActionTypes.REQUEST;
   id: string;
-}
+};
 
 export type FetchSingleCardSuccess = {
   type: typeof singleCardActionTypes.SUCCESS;
@@ -25,13 +25,13 @@ export type FetchSingleCardFailure = {
   payload: FetchSingleCardFailurePayload;
 };
 
-export interface FetchSingleCardSuccessPayload {
+export type FetchSingleCardSuccessPayload = {
   card: ICard;
-}
+};
 
-export interface FetchSingleCardFailurePayload {
+export type FetchSingleCardFailurePayload = {
   error: string;
-}
+};
 
 export type SingleCardTypes =
   | FetchSingleCardRequest

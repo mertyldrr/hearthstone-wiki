@@ -1,8 +1,5 @@
 import { cardsActionTypes } from '../action-types/cards';
-
-export interface ICard {
-  [key: string]: string;
-}
+import { ICard } from './common';
 
 export type CardsState = {
   loading: boolean;
