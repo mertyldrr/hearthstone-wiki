@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Backdrop } from './styles/CardInfo.styled';
 
-const CardInfo = () => {
+const CardInfo = (): JSX.Element => {
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
   const handleCloseModal = () => {
