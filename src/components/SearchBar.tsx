@@ -2,12 +2,15 @@ import { GlobalState } from '../redux/store/rootReducer';
 import { SearchBarStyled } from './styles/Header.styled';
 import { searchCardsByName } from '../redux/actions/cards/cards';
 import { searchByCardbackName } from '../redux/actions/cardbacks/cardbacks';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-const SearchBar = (props: any) => {
+const SearchBar = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const searchText = useSelector(
+    (state: GlobalState) => state.cards.searchText
+  );
   let onChangeHandler;
   if (location.pathname === '/cards') {
     onChangeHandler = (event: string) => {
@@ -41,15 +44,11 @@ const SearchBar = (props: any) => {
   };
   return (
     <SearchBarStyled
-      value={props.searchText ? props.searchText : ''}
+      value={searchText ? searchText : ''}
       onChange={onChangeHandler}
       onCancelSearch={onCancelHandler}
     />
   );
 };
 
-const mapStateToProps = (state: GlobalState) => ({
-  searchText: state.cards.searchText,
-});
-
-export default connect(mapStateToProps)(SearchBar);
+export default SearchBar;
