@@ -13,21 +13,19 @@ const Header = () => {
   return (
     <Container>
       <Box>
-        <AppBar position='static'>
+        <AppBar>
           <Toolbar sx={{ backgroundColor: '#009AE4' }}>
-            <IconButton
-              size='large'
-              edge='start'
-              color='inherit'
-              aria-label='menu'
-              sx={{ mr: 2 }}
-            >
+            <IconButton size='large' edge='start' color='inherit'>
               <MenuIcon />
             </IconButton>
             <Typography
-              variant='h6'
               component='div'
-              style={{ flexGrow: 0.3, fontSize: 28, fontFamily: 'BelweMedium' }}
+              style={{
+                flexGrow: 0.3,
+                fontSize: 28,
+                fontFamily: 'BelweMedium',
+                marginLeft: 30,
+              }}
             >
               Hearthstone Wiki
             </Typography>
@@ -42,18 +40,10 @@ const Header = () => {
                   Cardbacks
                 </HeaderLink>
               </li>
+              <li>
+                <SearchBar />
+              </li>
             </HeaderList>
-          </Toolbar>
-          <Toolbar sx={{ backgroundColor: '#009AE4' }}>
-            <Container
-              style={{
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <SearchBar />
-            </Container>
           </Toolbar>
         </AppBar>
       </Box>

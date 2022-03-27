@@ -1,53 +1,47 @@
-import { GlobalState } from '../redux/store/rootReducer';
-import { SearchBarStyled } from './styles/Header.styled';
 import { searchCardsByName } from '../redux/actions/cards/cards';
 import { searchByCardbackName } from '../redux/actions/cardbacks/cardbacks';
-import { useDispatch, useSelector } from 'react-redux';
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 const SearchBar = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const searchText = useSelector(
-    (state: GlobalState) => state.cards.searchText
-  );
-  let onChangeHandler;
+  let onChangeHandler: (param: string) => void;
   if (location.pathname === '/cards') {
-    onChangeHandler = (event: string) => {
+    onChangeHandler = (text: string) => {
       dispatch(
         searchCardsByName({
-          searchText: event,
+          searchText: text,
         })
       );
     };
   } else if (location.pathname === '/cardbacks') {
-    onChangeHandler = (event: string) => {
+    onChangeHandler = (text: string) => {
       dispatch(
         searchByCardbackName({
-          searchText: event,
+          searchText: text,
         })
       );
     };
   }
 
-  const onCancelHandler = () => {
-    dispatch(
-      searchCardsByName({
-        searchText: '',
-      })
-    );
-    dispatch(
-      searchByCardbackName({
-        searchText: '',
-      })
-    );
-  };
   return (
-    <SearchBarStyled
-      value={searchText ? searchText : ''}
-      onChange={onChangeHandler}
-      onCancelSearch={onCancelHandler}
-    />
+    <Paper component='form' sx={{ width: 300 }} elevation={5}>
+      <IconButton disabled style={{ padding: 10 }}>
+        <SearchIcon />
+      </IconButton>
+      <InputBase
+        sx={{ ml: 1, flex: 1, fontSize: 13 }}
+        placeholder='Search'
+        onChange={(
+          event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+        ) => onChangeHandler(event.target.value)}
+      />
+    </Paper>
   );
 };
 
